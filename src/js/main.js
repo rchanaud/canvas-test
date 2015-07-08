@@ -1,26 +1,33 @@
-(function(){
-    'use strict';
+let width  = window.innerWidth;
+let height = 300; // Hauteur arbitraire
 
-    var canvas = document.getElementById('mycanvas');
-        canvas.width  = window.screen.availWidth;
-        canvas.height = 300;
-    var context = canvas.getContext('2d');
+let canvas = document.getElementById('mycanvas');
+    canvas.width  = width;
+    canvas.height = height;
 
-    var drawLine = function(){
-        context.beginPath();
-        context.moveTo(getRandNum(canvas.width),getRandNum(canvas.height));
-        context.lineTo(getRandNum(canvas.width),getRandNum(canvas.height));
-        context.stroke();
+let context = canvas.getContext('2d');
+    context.strokeStyle = '#000';
+    context.lineWidth = 1;
+
+let lines = [];
+
+for (let x = 0; x < width; x = x + width/60){
+    let line = {
+        startX: x + getRandNum(width)/60,
+        startY: 0,
+        endX  : x + getRandNum(width)/60,
+        endY  : height
     };
+    lines.push(line);
+}
 
-    var getRandNum = function(max){
-        return Math.floor(Math.random()*max);
-    };
+lines.forEach(function(line){
+    context.beginPath();
+    context.moveTo(line.startX, line.startY);
+    context.lineTo(line.endX, line.endY);
+    context.stroke();
+});
 
-    
-
-    for (var i = 0; i < 45; i++) {
-        drawLine();
-    }
-
-}());
+function getRandNum(max){
+    return Math.floor(Math.random()*max);
+}

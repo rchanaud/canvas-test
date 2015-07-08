@@ -11,8 +11,18 @@
   ],
   "author": "me",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.1.0"
-  }
+    "gulp-babel": "^5.1.0",
+    "gulp-plumber": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rchanaud/canvas-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rchanaud/canvas-test/issues"
+  },
+  "homepage": "https://github.com/rchanaud/canvas-test#readme"
 }

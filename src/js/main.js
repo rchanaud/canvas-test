@@ -28,6 +28,13 @@ lines.forEach(function(line){
     context.stroke();
 });
 
+lines.forEach(function(line){
+    TweenLite.to(line, 1+1*Math.random(), {
+        x: line.startX+ getRandNum(width)/60,
+        y: line.startY+ getRandNum(height)/60
+    });
+});
+
 function getRandNum(max){
     return Math.floor(Math.random()*max);
 }
